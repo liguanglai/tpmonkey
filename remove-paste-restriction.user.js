@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除禁止粘贴属性
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  在页面加载完成后移除指定输入框的不允许粘贴属性
 // @author       You
 // @match        https://brain.hankyu-travel.com/*  // 这里替换为你的目标网站
@@ -12,12 +12,16 @@
     'use strict';
 
     function removePasteRestriction() {
-        // 根据ID选择目标输入框
-        var targetInput = document.getElementById('txt_kosuno_pd0');
+        for (let i = 0; i < 100; i++) { // 尝试获取前100个输入框，可以根据需要调整
+            let id = 'txt_kosuno_pd' + i;
+            let targetInput = document.getElementById(id);
 
-        // 移除不允许粘贴的属性
-        if(targetInput) {
-            targetInput.removeAttribute('onpaste');
+            if (targetInput) {
+                targetInput.removeAttribute('onpaste');
+            } else {
+                // 如果某个id不存在，可以选择退出循环，因为可能后面的id都不存在
+                break;
+            }
         }
     }
 
