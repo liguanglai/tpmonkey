@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除禁止粘贴属性
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  移除指定输入框的不允许粘贴属性
 // @author       You
 // @match        https://target-website.com/*  // 这里替换为你的目标网站
