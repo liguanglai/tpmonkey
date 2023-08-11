@@ -25,7 +25,10 @@
         }
     }
 
-    // 使用 'DOMContentLoaded' 事件确保页面内容加载完成后再执行
-    document.addEventListener('DOMContentLoaded', removePasteRestriction);
+    // 使用 'window.onload' 事件确保所有页面资源加载完成后再执行
+    window.onload = function() {
+        // 设置延时10秒后执行移除操作
+        setTimeout(removePasteRestriction, 10000);  // 10000毫秒等于10秒
+    };
 
 })();
